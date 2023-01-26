@@ -24,17 +24,33 @@
 
 let plans = {};
 
-$("#currentDay").text(dayjs().format("dddd")+", "+dayjs().format('MMMM D'));
-let currentHour = dayjs().format("H");
-for (let i = 9; i < 18; i++){
-  if (i < currentHour){
-    $(`#hour-${i}`).addClass("past");
-  } else if (i = currentHour){
-    $(`#hour-${i}`).addClass("present");
-  } else {
-    $(`#hour-${i}`).addClass("future");
+function init() {
+  let savedPlans = JSON.parse(localStorage.getItem("plans"));
+  if (savedPlans !== null) {
+    plans = savedPlans;
+  }
+  renderPlans();
+  loadCurrentDateTime();
+}
+
+function loadCurrentDateTime(){
+  $("#currentDay").text(dayjs().format("dddd")+", "+dayjs().format('MMMM D'));
+  let currentHour = dayjs().format("H");
+  for (let i = 9; i < 18; i++){
+    if (i < currentHour){
+      $(`#hour-${i}`).addClass("past");
+    } else if (i = currentHour){
+      $(`#hour-${i}`).addClass("present");
+    } else {
+      $(`#hour-${i}`).addClass("future");
+    }
   }
 }
+
+function renderPlans(){
+  $("textarea")
+}
+
 
 $(".saveBtn").on("click", function(event){
   event.preventDefault;
@@ -44,4 +60,7 @@ $(".saveBtn").on("click", function(event){
   console.log(hourId);
   plans[hourId] = plan;
   console.log(plans);
+  localStorage.setItem("plans", JSON.stringify(plans));
 });
+
+init();
