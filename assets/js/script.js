@@ -48,7 +48,13 @@ function loadCurrentDateTime(){
 }
 
 function renderPlans(){
-  $("textarea")
+  $("textarea").text("");
+  console.log(plans);
+  console.log(Object.keys(plans));
+  console.log(Object.values(plans));
+  $.each(Object.keys(plans), function(i, key){
+    $(`#${key}`).children("textarea").text(plans[key]);
+  })
 }
 
 
