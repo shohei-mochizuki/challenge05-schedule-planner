@@ -1,32 +1,27 @@
-# Challenge 04 Web API: Interactive Quiz
+# Challenge 05 Third-Party API: Schedule Planner
 
 ## Description
 
-This is a webpage where you can test your knowledge on HTML, CSS and JavaScript.
-You can save your score in your browser's local storage and compare it with other users' scores!
-Originally created for Module 4 challenge of UofT SCS Coding Boot Camp - Web API.
+This is a webpage where you can save your work schedule for a day.
+It also tells you what day it is and if the plans/events are past/present/future ones with a color code scheme.
+Originally created for Module 5 challenge of UofT SCS Coding Boot Camp - Third-Party API.
 
 
 ## Usage
 
-Click the "Start" button and answer questions by clicking an answer from 4 options. 
-Only 1 of them is correct and you can see if your answer is correct or not.
-When your answer is wrong, some seconds are subtracted from your remaining time.
-When you answer all your questions or the time is over, the quiz ends.
-You can see your score and save it with your initials after clicking "Submit" button.
-When you click "View Highscores" button, you can see all the past high scores.
-You can delete these information by clicking "Clear Highscores" button.
+Type your schedule/plan/event in the desired timeslot box (9AM to 5PM).
+Save if by clicking the disk icon next to the input box.
+This data is saved in your local storage. Hence it remains there even if you refresh the page. 
 
-In the JavaScript file (script.js), you can easily change the following items:
-* Questions and answers
-* How long (how many seconds) will the user be given
-* How long (how many seconds) will be subtracted when the answer is wrong
-* How many top scorers will be shown
+The color code scheme is as follow:
+* Grey: Past plan/event
+* Red: Current plan/event
+* Green: Future plan/event
 
 
 ## Live site
 
-https://shohei-mochizuki.github.io/challenge04-interactive-quiz/
+https://shohei-mochizuki.github.io/challenge05-schedule-planner/
 
 
 ## Screenshots of the page
