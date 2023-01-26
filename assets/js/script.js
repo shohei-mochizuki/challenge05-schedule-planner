@@ -48,24 +48,17 @@ function loadCurrentDateTime(){
 }
 
 function renderPlans(){
-  $("textarea").text("");
-  console.log(plans);
-  console.log(Object.keys(plans));
-  console.log(Object.values(plans));
   $.each(Object.keys(plans), function(i, key){
     $(`#${key}`).children("textarea").text(plans[key]);
   })
 }
 
-
-$(".saveBtn").on("click", function(event){
+$(".saveBtn").on("click", async function(event){
+  await init();
   event.preventDefault;
-  let plan = $(event.target).parent().children("textarea").val().trim();
-  let hourId = $(event.target).parent().attr("id");
-  console.log(plan);
-  console.log(hourId);
+  let plan = $(this).parent().children("textarea").val();
+  let hourId = $(this).parent().attr("id");
   plans[hourId] = plan;
-  console.log(plans);
   localStorage.setItem("plans", JSON.stringify(plans));
 });
 
