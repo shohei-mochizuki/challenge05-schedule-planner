@@ -22,10 +22,10 @@
 // TODO: Add code to display the current date in the header of the page.
 // });
 
+let plans = {};
 
 $("#currentDay").text(dayjs().format("dddd")+", "+dayjs().format('MMMM D'));
 let currentHour = dayjs().format("H");
-console.log(currentHour);
 for (let i = 9; i < 18; i++){
   if (i < currentHour){
     $(`#hour-${i}`).addClass("past");
@@ -36,3 +36,12 @@ for (let i = 9; i < 18; i++){
   }
 }
 
+$(".saveBtn").on("click", function(event){
+  event.preventDefault;
+  let plan = $(event.target).parent().children("textarea").val().trim();
+  let hourId = $(event.target).parent().attr("id");
+  console.log(plan);
+  console.log(hourId);
+  plans[hourId] = plan;
+  console.log(plans);
+});
